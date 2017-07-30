@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.1.RELEASE</version>
+	</parent>
+
+	<groupId>com.zouhao</groupId>
+	<artifactId>soaframe</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>soaframe</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>app/web/soaframe-web</module>
+		<module>app/web/soaframe-manager</module>
+		<module>app/web/soaframe-service</module>
+		<module>app/common/soaframe-dao</module>
+		<module>app/common/soaframe-common-util</module>
+		<module>app/common/soaframe-service-intergation</module>
+		<module>app/rpc/soaframe-rpc-service</module>
+		<module>app/rpc/soaframe-rpc-service-impl</module>
+	</modules>
+
+	<dependencies>
+
+	</dependencies>
+
+
+	<dependencyManagement>
+
+		<dependencies>
+		
+			<!-- soaframe start -->
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-web</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-service</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-manager</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-rpc-service-impl</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-rpc-service</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-service-intergation</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-dao</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zouhao</groupId>
+				<artifactId>soaframe-common-util</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<!-- soaframe end -->
+			
+			<!-- springboot start -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>1.5.1.RELEASE</version>
+				<exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+			</dependency>
+			<dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>1.5.1.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j</artifactId>
+                <version>1.3.8.RELEASE</version>
+            </dependency>
+			<!-- springboot end -->
+			
+			<!-- dubbo start -->
+			<dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>2.8.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>3.4.8</version>
+            </dependency>
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.3</version>
+            </dependency>
+			<!-- dubbo end -->
+			
+			<!-- commons start -->
+			<dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.1</version>
+            </dependency>
+			<!-- commons end -->
+			
+			<dependency>
+				<groupId>org.javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>3.22.0-CR2</version>
+			</dependency>
+			
+			
+			<!--logging log4j start -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!--logging log4j end -->
+            
+            <!-- javax servlet start -->
+			<dependency>
+			  <groupId>javax.servlet</groupId>
+			  <artifactId>javax.servlet-api</artifactId>
+			  <version>3.1.0</version>
+			  <scope>provided</scope>
+			</dependency>
+			<!-- javax servlet end -->
+			
+			
+		</dependencies>
+
+	</dependencyManagement>
+
+
+
+
+	<build>
+		<!-- 默认的主代码目录 -->
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<!-- 默认的测试代码目录 -->
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>jdk18</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>1.8</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>1.8</maven.compiler.source>
+				<maven.compiler.target>1.8</maven.compiler.target>
+				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+			</properties>
+		</profile>
+	</profiles>
+
+</project>

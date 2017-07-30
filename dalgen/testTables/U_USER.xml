@@ -1,0 +1,38 @@
+<!DOCTYPE table SYSTEM "../config/table-config-1.0.dtd">
+<table sqlname="U_USER" physicalName="U_USER" remark="U_USER">
+    <!--  特殊字符说明  &lt;&gt;   <> -->
+
+    <operation name="insert" paramtype="object" remark="插入表:U_USER">
+            <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+                SELECT
+                LAST_INSERT_ID()
+            </selectKey>
+        INSERT INTO U_USER(
+            
+            NAME
+        )VALUES(
+            
+            #{name,jdbcType=VARCHAR}
+        )
+    </operation>
+
+        <operation name="update" paramtype="object" remark="更新表:U_USER">
+            UPDATE U_USER
+            SET
+                    NAME            = #{name,jdbcType=VARCHAR}
+            WHERE
+                ID              = #{id,jdbcType=INTEGER}
+        </operation>
+
+        <operation name="deleteByPrimary" multiplicity="one" remark="根据主键删除数据:U_USER">
+            DELETE FROM U_USER
+            WHERE
+                ID = #{id,jdbcType=INTEGER}
+        </operation>
+
+        <operation name="getByPrimary" multiplicity="one" remark="根据主键获取数据:U_USER">
+            SELECT * FROM U_USER
+            WHERE
+                ID = #{id,jdbcType=INTEGER}
+        </operation>
+</table>

@@ -37,7 +37,7 @@
 		
 		<dependency>
 			<groupId>com.zouhao</groupId>
-			<artifactId>soaframe-dao</artifactId>
+			<artifactId>soaframe-service</artifactId>
 		</dependency>
 		
 	</dependencies>

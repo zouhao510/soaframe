@@ -114,6 +114,11 @@
                 <artifactId>spring-boot-starter-log4j</artifactId>
                 <version>1.3.8.RELEASE</version>
             </dependency>
+            <dependency>  
+	            <groupId>org.springframework.boot</groupId>  
+	            <artifactId>spring-boot-starter-test</artifactId>  
+	            <version>1.5.3.RELEASE</version>
+			</dependency> 
 			<!-- springboot end -->
 			
 			<!-- dubbo start -->
@@ -133,6 +138,12 @@
                 <version>0.3</version>
             </dependency>
 			<!-- dubbo end -->
+			
+			<dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>fastjson</artifactId>
+			    <version>1.2.32</version>
+			</dependency>
 			
 			<!-- commons start -->
 			<dependency>
@@ -176,6 +187,12 @@
 			</dependency>
 			<!-- javax servlet end -->
 			
+			<!-- springboot mybatis -->
+			<dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.2.0</version>
+            </dependency>
 			
 		</dependencies>
 

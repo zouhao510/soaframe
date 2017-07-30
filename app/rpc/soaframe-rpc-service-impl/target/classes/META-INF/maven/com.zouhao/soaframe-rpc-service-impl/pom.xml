@@ -37,11 +37,6 @@
 			<artifactId>soaframe-rpc-service</artifactId>
 		</dependency>
 		
-		<dependency>
-			<groupId>com.zouhao</groupId>
-			<artifactId>soaframe-manager</artifactId>
-		</dependency>
-		
 		<!-- dubbo start -->
 		<dependency>
 			<groupId>com.alibaba</groupId>

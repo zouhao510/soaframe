@@ -13,6 +13,12 @@ import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
 import com.alibaba.dubbo.rpc.Exporter;
 
+/**
+ * @Description: dubbox配置类
+ * @author zouhao
+ * @date 2017年7月30日 上午10:33:25
+ * 
+ */
 @Configuration
 @ConditionalOnClass(Exporter.class)
 @PropertySource(value = "classpath:/dubbox/dubbox.properties")
@@ -94,7 +100,6 @@ public class DubboConfiguration {
 		protocolConfig.setName(protocolName);
 		protocolConfig.setPort(protocolPort);
 		protocolConfig.setThreads(200);
-		System.out.println("默认protocolConfig：" + protocolConfig.hashCode());
 		return protocolConfig;
 	}
 

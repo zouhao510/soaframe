@@ -1,30 +1,19 @@
 package org.soaframe.rpc.service.impl.service;
 
-import org.soaframe.manager.sms.SendSmsLogic;
-import org.soaframe.rpc.service.api.IPayService;
-import org.soaframe.rpc.service.pojo.PayResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.apache.log4j.Logger;
+import org.soaframe.rpc.service.api.PayService;
 
 import com.alibaba.dubbo.config.annotation.Service;
 
-/**
- * dubbo 支付服务提供者
- */
-@Component
 @Service
-public class PayServiceImpl implements IPayService {
+public class PayServiceImpl implements PayService {
 
-	@Autowired
-	private SendSmsLogic sendSmsLogic;
+	private final Logger log = Logger.getLogger(PayServiceImpl.class);
 
-	public PayResult pay(double money) {
+	@Override
+	public void pay(String orderCode, String payMethod, double money) {
 
-		String callBack = sendSmsLogic.smsSuccessCallBack("xxxxxxxx");
-		PayResult result = new PayResult();
-		result.setCode(1);
-		result.setMessage(callBack);
-		return result;
+		log.info(String.format("支付订单号：%s ,采用支付方式：%s , 工支付：%f 成功", orderCode, payMethod, money));
 	}
 
 }

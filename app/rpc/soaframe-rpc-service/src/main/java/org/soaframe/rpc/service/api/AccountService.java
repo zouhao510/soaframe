@@ -1,6 +1,7 @@
 package org.soaframe.rpc.service.api;
 
 import org.soaframe.common.dal.dataobject.AccountDO;
+import org.soaframe.rpc.service.resp.RpcDataResp;
 
 /**
  * @Description: 账户中心rpc服务
@@ -10,6 +11,6 @@ import org.soaframe.common.dal.dataobject.AccountDO;
  */
 public interface AccountService {
 
-	AccountDO findByAccount(String account);
+	RpcDataResp<AccountDO> findByAccount(String account);
 
 }

@@ -1,5 +1,7 @@
 package org.soaframe.rpc.service.api;
 
+import org.soaframe.rpc.service.resp.RpcResp;
+
 /**
  * @Description: 支付中心rpc服务
  * @author zouhao
@@ -15,6 +17,6 @@ public interface PayService {
 	 * @param payMethod
 	 * @param money
 	 */
-	void pay(String orderCode, String payMethod, double money);
+	RpcResp pay(String orderCode, String payMethod, double money);
 
 }

@@ -1,5 +1,7 @@
 package org.soaframe.rpc.service.api;
 
+import org.soaframe.rpc.service.resp.RpcResp;
+
 /**
  * @Description: 库存中心rpc服务
  * @author zouhao
@@ -15,5 +17,5 @@ public interface StockService {
 	 * @param num
 	 * @return
 	 */
-	void outStock(String product, Integer num);
+	RpcResp outStock(String product, Integer num);
 }

@@ -1,9 +1,9 @@
 package org.soaframe.web.controller;
 
+import org.soaframe.core.service.exception.ArgumentException;
+import org.soaframe.core.service.exception.CodeEnum;
 import org.soaframe.manager.share.OrderManager;
-import org.soaframe.service.exception.ArgumentException;
-import org.soaframe.service.exception.CodeEnum;
-import org.soaframe.web.resp.BaseResp;
+import org.soaframe.web.resp.WebBaseResp;
 import org.soaframe.web.util.CreateOrderParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,14 +29,14 @@ public class OrderController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public BaseResp<String> createOrder(@RequestBody CreateOrderParam param) {
+	public WebBaseResp<String> createOrder(@RequestBody CreateOrderParam param) {
 
 		if (StringUtils.isBlank(param.getAccount()) || StringUtils.isBlank(param.getPayMethod())
 				|| null == param.getProduct() || null == param.getMoney()) {
 			throw new ArgumentException(CodeEnum.ERROR_PARAM_EMPTY);
 		}
 		orderManager.crateOrder(param.getAccount(), param.getMoney(), param.getPayMethod(), param.getProduct());
-		return new BaseResp<String>(CodeEnum.OK);
+		return new WebBaseResp<String>(CodeEnum.OK);
 	}
 
 }

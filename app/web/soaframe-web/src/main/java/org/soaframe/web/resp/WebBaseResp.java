@@ -2,7 +2,7 @@ package org.soaframe.web.resp;
 
 import java.io.Serializable;
 
-import org.soaframe.service.exception.CodeEnum;
+import org.soaframe.core.service.exception.CodeEnum;
 
 /**
  * @Description: web层基础响应类
@@ -11,36 +11,40 @@ import org.soaframe.service.exception.CodeEnum;
  * 
  * @param <T>
  */
-public class BaseResp<T> implements Serializable {
+public class WebBaseResp<T> implements Serializable {
 
 	private static final long serialVersionUID = 7450186561550824949L;
 
-	private Integer code;
+	private int code;
 
 	private String msg;
 
 	private T data;
 
-	public BaseResp(Integer code, String msg) {
+	public WebBaseResp() {
+
+	}
+
+	public WebBaseResp(int code, String msg) {
 		this.code = code;
 		this.msg = msg;
 	}
 
-	public BaseResp(CodeEnum codeEnum) {
+	public WebBaseResp(CodeEnum codeEnum) {
 		this.code = codeEnum.getCode();
 		this.msg = codeEnum.getMsg();
 	}
 
-	public BaseResp(CodeEnum codeEnum, String msg) {
+	public WebBaseResp(CodeEnum codeEnum, String msg) {
 		this.code = codeEnum.getCode();
 		this.msg = msg;
 	}
 
-	public Integer getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(Integer code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 

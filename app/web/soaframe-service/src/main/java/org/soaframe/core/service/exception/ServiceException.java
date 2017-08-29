@@ -1,7 +1,7 @@
-package org.soaframe.service.exception;
+package org.soaframe.core.service.exception;
 
 /**
- * @Description: 请求参数错误
+ * @Description: 服务异常
  * @author zouhao
  * @date 2017年7月17日 下午2:05:52
  * 
@@ -10,37 +10,38 @@ public class ServiceException extends RuntimeException {
 
 	private static final long serialVersionUID = 8629871530536011636L;
 
-	private Integer errorCode;
-	private String errorMessage;
+	private int errorCode;
+	private String errorMsg;
 
 	public ServiceException(CodeEnum codeEnum) {
 		this.errorCode = codeEnum.getCode();
-		this.errorMessage = codeEnum.getMsg();
+		this.errorMsg = codeEnum.getMsg();
 	}
 
-	public ServiceException(CodeEnum codeEnum, String errorMessage) {
+	public ServiceException(CodeEnum codeEnum, String errorMsg) {
 		this.errorCode = codeEnum.getCode();
-		this.errorMessage = errorMessage;
+		this.errorMsg = errorMsg;
 	}
 
-	public ServiceException(Integer errorCode, String errorMessage) {
+	public ServiceException(int errorCode, String errorMsg) {
 		this.errorCode = errorCode;
-		this.errorMessage = errorMessage;
+		this.errorMsg = errorMsg;
 	}
 
-	public Integer getErrorCode() {
+	public int getErrorCode() {
 		return errorCode;
 	}
 
-	public void setErrorCode(Integer errorCode) {
+	public void setErrorCode(int errorCode) {
 		this.errorCode = errorCode;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
+
 }

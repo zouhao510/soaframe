@@ -4,13 +4,14 @@ import java.util.UUID;
 
 import org.jboss.logging.Logger;
 import org.soaframe.common.dal.dataobject.AccountDO;
+import org.soaframe.core.service.exception.ArgumentException;
+import org.soaframe.core.service.exception.CodeEnum;
 import org.soaframe.manager.share.OrderManager;
 import org.soaframe.manager.share.util.CommonProduct;
 import org.soaframe.rpc.service.api.AccountService;
 import org.soaframe.rpc.service.api.PayService;
 import org.soaframe.rpc.service.api.StockService;
-import org.soaframe.service.exception.ArgumentException;
-import org.soaframe.service.exception.CodeEnum;
+import org.soaframe.rpc.service.resp.RpcDataResp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,10 +40,10 @@ public class OrderManagerImpl implements OrderManager {
 	public void crateOrder(String account, double money, String payMethod, CommonProduct product) {
 
 		// 调用用户中心服务,查看账户类型，及账户优惠信息
-		AccountDO accountDO = accountService.findByAccount(account);
+		RpcDataResp<AccountDO> resp = accountService.findByAccount(account);
 
-		if (null == accountDO) {
-			log.error(String.format("账户不存在：%s"));
+		if (null == resp || resp.getCode() != 1 || null == resp.getData()) {
+			log.error(String.format("账户不存在：%s", account));
 			throw new ArgumentException(CodeEnum.ERROR_PARAM_DEFAULT, "账户不存在");
 		}
 
